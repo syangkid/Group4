@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Men's Collection - Urban Drip</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .men-hero {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #050505;
+    }
+    .men-hero::before {
+      content: '';
+      position: absolute;
+      opacity: 0.5; 
+      z-index: 2;
+    }
+    .men-hero-img {
+      position: absolute;
+      inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.25; z-index: 1;
+    }
+    .men-category-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .men-cat-tile {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      display: block;
+    }
+    .men-cat-tile:hover, .men-cat-tile.active {
+      border-color: var(--accent);
+      background: rgba(200,168,75,0.07);
+    }
+    .men-cat-tile .icon { font-size: 28px; margin-bottom: 8px; }
+    .men-cat-tile .label {
+      font-family: var(--font-sub);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .men-cat-tile:hover .label { color: var(--accent); }
+
+    .lookbook-strip {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+    .lookbook-tile {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      background: #1a1810;
+      cursor: pointer;
+    }
+    .lookbook-tile .bg {
+      width: 100%; aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #1a1810, #2a2010);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-sub); font-size: 12px;
+      letter-spacing: 3px; color: var(--text-muted);
+    }
+    .lookbook-tile .bg img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5;
+    }
+    .lookbook-tile-tall .bg { aspect-ratio: 2/3; }
+    .lookbook-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+      padding: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .men-hero::before {
+        background: rgba(5, 5, 5, 0.75); }
+      .men-category-strip { grid-template-columns: repeat(3,1fr); }
+      .lookbook-strip { grid-template-columns: 1fr 1fr; }
+      .lookbook-tile:last-child { display: none; }
+    }
+    @media (max-width: 480px) {
+      .men-category-strip { grid-template-columns: repeat(2,1fr); }
+      .lookbook-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">URBAN<span>DRIP</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="new.html">New</a></li>
+      <li><a href="brands.html">Brands</a></li>
+      <li><a href="men.html" class="active">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kids.html">Kids</a></li>
+      <li><a href="footwear.html">Footwear</a></li>
+      <li><a href="headwear.html">Headwear</a></li>
+      <li><a href="bestsellers.html">Best Sellers</a></li>
+      <li><a href="sale.html" class="text-red">Sale</a></li>
+    </ul>
+    <div class="nav-icons">
+      <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="navClose">✕</button>
+  <a href="index.html" class="navbar-logo" style="font-size:32px">URBAN<span style="color:var(--accent)">DRIP</span></a>
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="new.html">New</a></li><li><a href="brands.html">Brands</a></li>
+    <li><a href="men.html" style="color:var(--accent)">Men</a></li><li><a href="women.html">Women</a></li>
+    <li><a href="kids.html">Kids</a></li><li><a href="footwear.html">Footwear</a></li><li><a href="headwear.html">Headwear</a></li>
+    <li><a href="bestsellers.html">Best Sellers</a></li><li><a href="sale.html" style="color:var(--accent2)">Sale</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="men-hero">
+  <img src="./image/banner men.webp" alt="Men's Collection" class="men-hero-img"/>
+  <div class="container" style="position:relative;z-index:1;">
+    <h1 class="display-xl fade-in-2" style="line-height:0.88">MEN'S<br/><span class="text-accent">COLLECTION</span></h1>
+    <p class="fade-in-3" style="color:var(--text-light);font-family:var(--font-sub);font-size:18px;letter-spacing:2px;margin:20px 0 32px;max-width:480px">Wear the mountain. Own the street.</p>
+  </div>
+</section>
+
+<!-- MAIN SHOP SECTION -->
+<section id="men-products" class="section-pad">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span class="current">Men's Collection</span></div>
+    <div class="shop-layout">
+
+      <!-- FILTER SIDEBAR -->
+      <aside class="filter-sidebar">
+        <div class="filter-title">Filter</div>
+        <div class="filter-group">
+          <div class="filter-group-label">Availability</div>
+          <label class="filter-option"><input type="checkbox" checked/> In Stock (380)</label>
+          <label class="filter-option"><input type="checkbox"/> Pre-Order (22)</label>
+        </div>
+        <div class="filter-group">
+          <div class="filter-group-label">Size</div>
+          <div class="size-selector">
+            <button class="size-btn">XS</button>
+            <button class="size-btn active">S</button>
+            <button class="size-btn">M</button>
+            <button class="size-btn">L</button>
+            <button class="size-btn">XL</button>
+            <button class="size-btn">XXL</button>
+            <button class="size-btn">3XL</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <div class="filter-group-label">Brand</div>
+          <label class="filter-option"><input type="checkbox" checked/> Urban Drip</label>
+          <label class="filter-option"><input type="checkbox"/> Druk Lab</label>
+          <label class="filter-option"><input type="checkbox"/> Paro Collective</label>
+          <label class="filter-option"><input type="checkbox"/> Tiger Nest Co.</label>
+          <label class="filter-option"><input type="checkbox"/> Dzong Street</label>
+        </div>
+        <button class="btn btn-primary w-100" style="margin-top:8px">Apply Filters</button>
+        <button class="btn btn-outline w-100" style="margin-top:8px">Clear All</button>
+      </aside>
+
+      <!-- PRODUCT GRID -->
+      <div>
+        <!-- TABS -->
+        <div class="tabs">
+          <button class="tab-btn active">All</button>
+          <button class="tab-btn">New</button>
+          <button class="tab-btn">Tops</button>
+          <button class="tab-btn">Bottoms</button>
+          <button class="tab-btn">Outerwear</button>
+          <button class="tab-btn">Sale</button>
+        </div>
+
+        <div class="sort-bar">
+          <span class="result-count">380 Products</span>
+          <select>
+            <option>Sort: Featured</option>
+            <option>Newest First</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+          </select>
+        </div>
+
+        <div class="product-grid">
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Dragon Bomber Jacket.webp" alt="">
+          </div><span class="product-badge badge-best">Best Seller</span></div><div class="product-card-body"><p class="product-brand">Druk Lab</p><p class="product-name">Dragon Bomber Jacket</p><div class="product-price"><span class="price-current">Nu. 3,500</span></div><div class="stars mt-8">★★★★★</div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Druk Hoodie.webp" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Urban Drip</p><p class="product-name">Druk Street Hoodie</p><div class="product-price"><span class="price-current">Nu. 1,500</span></div><div class="stars mt-8">★★★★☆</div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Dragon Cargo Pants.jpg" alt="">
+          </div><span class="product-badge badge-sale">-25%</span></div><div class="product-card-body"><p class="product-brand">Dzong Street</p><p class="product-name">Dragon Cargo Pants</p><div class="product-price"><span class="price-current">Nu. 1,800</span><span class="price-original">Nu. 2,400</span><span class="price-discount">-25%</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Summit Crewneck.webp" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Tiger Nest Co.</p><p class="product-name">Summit Crewneck</p><div class="product-price"><span class="price-current">Nu. 990</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+       </div>
+
+        <div class="pagination">
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">4</button>
+          <button class="page-btn">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">URBAN<span>DRIP</span></div>
+          <p class="footer-desc">Bhutan's leading streetwear platform. Where ancient culture meets urban edge.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn">f</a>
+            <a href="#" class="social-btn">ig</a>
+            <a href="#" class="social-btn">tw</a>
+            <a href="#" class="social-btn">yt</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Shop</div>
+          <ul class="footer-links">
+            <li><a href="new.html">New Arrivals</a></li>
+            <li><a href="men.html">Men</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="kids.html">Kids</a></li>
+            <li><a href="footwear.html">Footwear</a></li>
+            <li><a href="headwear.html">Headwear</a></li>
+            <li><a href="sale.html">Sale</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Company</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="bestsellers.html">Best Sellers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Help</div>
+          <ul class="footer-links">
+            <li><a href="contact.html">Shipping Policy</a></li>
+            <li><a href="contact.html">Returns & Exchanges</a></li>
+            <li><a href="contact.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Urban Drip. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Service</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileNav').classList.add('open'));
+  document.getElementById('navClose').addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'));
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => { document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); });
+  });
+</script>
+</body>
+</html>

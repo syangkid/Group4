@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sale - Urban Drip</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">URBAN<span>DRIP</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="new.html">New</a></li>
+      <li><a href="brands.html">Brands</a></li><li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li><li><a href="kids.html">Kids</a></li>
+      <li><a href="footwear.html">Footwear</a></li><li><a href="headwear.html">Headwear</a></li>
+      <li><a href="bestsellers.html">Best Sellers</a></li>
+      <li><a href="sale.html" class="text-red active">Sale</a></li>
+    </ul>
+    <div class="nav-icons">
+      <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="navClose">✕</button>
+  <a href="index.html" class="navbar-logo" style="font-size:32px">URBAN<span style="color:var(--accent)">DRIP</span></a>
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="new.html">New</a></li><li><a href="brands.html">Brands</a></li>
+    <li><a href="men.html">Men</a></li><li><a href="women.html">Women</a></li><li><a href="kids.html">Kids</a></li>
+    <li><a href="footwear.html">Footwear</a></li><li><a href="headwear.html">Headwear</a></li>
+    <li><a href="bestsellers.html">Best Sellers</a></li><li><a href="sale.html" style="color:var(--accent2)">Sale</a></li>
+  </ul>
+</div>
+
+<!-- SALE HERO -->
+<section class="sale-hero">
+  <div class="container" style="position:relative;z-index:1">
+    <p style="font-family:var(--font-sub);font-size:12px;letter-spacing:8px;text-transform:uppercase;color:rgba(181,69,27,0.7);margin-bottom:8px">Limited Time Only</p>
+    <span class="sale-big-text">BIG</span>
+    <span class="sale-off-text">SALE</span>
+    <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin:16px 0">
+      <span style="font-family:var(--font-display);font-size:clamp(48px,8vw,100px);color:var(--accent)">50%</span>
+      <span style="font-family:var(--font-display);font-size:clamp(28px,4vw,56px);color:var(--white)">OFF</span>
+    </div>
+    <p style="color:rgba(255,255,255,0.6);letter-spacing:3px;text-transform:uppercase;font-family:var(--font-sub);font-size:13px;margin-bottom:32px">Sale ends in:</p>
+    <div class="countdown" style="justify-content:center;margin-bottom:40px">
+      <div class="countdown-block"><span class="countdown-num" id="days">02</span><span class="countdown-label">Days</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-block"><span class="countdown-num" id="hours">15</span><span class="countdown-label">Hours</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-block"><span class="countdown-num" id="mins">30</span><span class="countdown-label">Mins</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-block"><span class="countdown-num" id="secs">00</span><span class="countdown-label">Secs</span></div>
+    </div>
+    <a href="#hot-deals" class="btn btn-red" style="font-size:15px;padding:18px 48px">Shop the Sale</a>
+  </div>
+</section>
+
+<!-- PROMO CODE BAR -->
+<div style="background:var(--card-bg);border-bottom:1px solid var(--border);padding:20px 0">
+  <div class="container" style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap">
+    <p style="font-family:var(--font-sub);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase">🎟️ Have a promo code?</p>
+    <div class="promo-code-bar">
+      <input type="text" class="form-control" placeholder="Enter code e.g. DRIP50" style="height:48px"/>
+      <button class="btn btn-primary" style="padding:0 24px;height:48px">Apply</button>
+    </div>
+  </div>
+</div>
+
+<!-- HOT DEALS -->
+<section id="hot-deals" class="section-pad">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">🔥 Most Popular</p>
+      <h2 class="display-md">Hot <span class="text-red">Deals</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="product-grid">
+      <div class="product-card"><div class="product-card-img"><div class="placeholder-img"><img src="./image/Dragon Bomber Jacket.webp" alt=""></div><span class="product-badge badge-hot">Hot</span></div><div class="product-card-body"><p class="product-brand">Urban Drip</p><p class="product-name">Dragon Bomber Jacket</p><div class="product-price"><span class="price-current">Nu. 2,450</span><span class="price-original">Nu. 3,500</span><span class="price-discount">-30%</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+
+      <div class="product-card"><div class="product-card-img"><div class="placeholder-img"><img src="./image/Dragon Cargo Pants.jpg" alt=""></div><span class="product-badge badge-hot">Hot</span></div><div class="product-card-body"><p class="product-brand">Paro Collective</p><p class="product-name">Dragon Cargo Pants</p><div class="product-price"><span class="price-current">Nu. 1,800</span><span class="price-original">Nu. 2,400</span><span class="price-discount">-25%</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+
+      <div class="product-card"><div class="product-card-img"><div class="placeholder-img"><img src="./image/Gaychen Crop Top.webp" alt=""></div><span class="product-badge badge-hot">Hot</span></div><div class="product-card-body"><p class="product-brand">Tiger Nest Co.</p><p class="product-name">Crop Top</p><div class="product-price"><span class="price-current">Nu. 2,750</span><span class="price-original">Nu. 3,575</span><span class="price-discount">-30%</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+
+      <div class="product-card"><div class="product-card-img"><div class="placeholder-img"><img src="./image/Monastery Wind Jacket.png" alt=""></div><span class="product-badge badge-hot">Hot</span></div><div class="product-card-body"><p class="product-brand">Druk Lab</p><p class="product-name">Monastery Windbreaker</p><div class="product-price"><span class="price-current">Nu. 1,960</span><span class="price-original">Nu. 2,800</span><span class="price-discount">-30%</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FLASH SALE -->
+<section class="section-pad-sm" style="background:var(--deep);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="flex-between mb-32">
+      <div>
+        <p class="eyebrow">⚡ Time-Limited</p>
+        <h2 class="display-md">Flash <span class="text-red">Sale</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div style="background:var(--accent2);padding:16px 24px;border-radius:8px;text-align:center">
+        <p style="font-family:var(--font-display);font-size:40px;color:#fff;line-height:1">-40%</p>
+        <p style="font-family:var(--font-sub);font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.7)">MAX DISCOUNT</p>
+      </div>
+    </div>
+    <div class="product-grid">
+      <div class="product-card"><div class="product-card-img"><div class="placeholder-img"><img src="./image/Dragon Tee.jpg" alt=""></div><span class="product-badge badge-sale">-40%</span></div><div class="product-card-body"><p class="product-brand">Dzong Street</p><p class="product-name">Dragon Tee</p><div class="product-price"><span class="price-current">Nu. 390</span><span class="price-original">Nu. 650</span><span class="price-discount">-40%</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+
+      <div class="product-card"><div class="product-card-img"><div class="placeholder-img"><img src="./image/Druk Hoodie.webp" alt=""></div><span class="product-badge badge-sale">-40%</span></div><div class="product-card-body"><p class="product-brand">Dochula Co.</p><p class="product-name">Druk Hoodie</p><div class="product-price"><span class="price-current">Nu. 714</span><span class="price-original">Nu. 1,190</span><span class="price-discount">-40%</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+
+      <div class="product-card"><div class="product-card-img"><div class="placeholder-img"><img src="./image/Dragon Print Joggers.jpg" alt=""></div><span class="product-badge badge-sale">-40%</span></div><div class="product-card-body"><p class="product-brand">Urban Drip</p><p class="product-name">Dragon Print Joggers</p><div class="product-price"><span class="price-current">Nu. 1,140</span><span class="price-original">Nu. 1,900</span><span class="price-discount">-40%</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+
+      <div class="product-card"><div class="product-card-img"><div class="placeholder-img"><img src="./image/Valley Wrap Jacket.webp" alt=""></div><span class="product-badge badge-sale">-40%</span></div><div class="product-card-body"><p class="product-brand">Paro Collective</p><p class="product-name">Valley Wrap Jacket</p><div class="product-price"><span class="price-current">Nu. 1,500</span><span class="price-original">Nu. 2,500</span><span class="price-discount">-40%</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLEARANCE SALE -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Final Reductions</p>
+      <h2 class="display-md">Clearance <span class="text-accent">Sale</span></h2>
+      <div class="section-divider"></div>
+      <p style="color:var(--text-muted);margin-top:12px">Last chance. Once it's gone, it's gone.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card"><div class="product-card-img"><div class="placeholder-img"><img src="./image/Striped Rugby Shirt.jpg" alt=""></div><span class="product-badge badge-sale">-50%</span></div><div class="product-card-body"><p class="product-brand">Tiger Nest Co.</p><p class="product-name">Heritage Flannel Shirt</p><div class="product-price"><span class="price-current">Nu. 450</span><span class="price-original">Nu. 900</span><span class="price-discount">-50%</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+      <div class="product-card"><div class="product-card-img"><div class="placeholder-img"><img src="./image/Paro Valley Joggers.png" alt=""></div><span class="product-badge badge-sale">-50%</span></div><div class="product-card-body"><p class="product-brand">Druk Lab</p><p class="product-name">Dragon Track Pants</p><div class="product-price"><span class="price-current">Nu. 600</span><span class="price-original">Nu. 1,200</span><span class="price-discount">-50%</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+      <div class="product-card"><div class="product-card-img"><div class="placeholder-img"><img src="./image/Prayer Flag Tee.png" alt=""></div><span class="product-badge badge-sale">-50%</span></div><div class="product-card-body"><p class="product-brand">Dochula Co.</p><p class="product-name">Flag Tee</p><div class="product-price"><span class="price-current">Nu. 340</span><span class="price-original">Nu. 680</span><span class="price-discount">-50%</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+      <div class="product-card"><div class="product-card-img"><div class="placeholder-img"><img src="./image/Bhutan Cargo Shorts.webp" alt=""></div><span class="product-badge badge-sale">-50%</span></div><div class="product-card-body"><p class="product-brand">Dzong Street</p><p class="product-name">Bhutan Cargo Shorts</p><div class="product-price"><span class="price-current">Nu. 750</span><span class="price-original">Nu. 1,500</span><span class="price-discount">-50%</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPIN & WIN GAME -->
+<section class="section-pad" style="background:var(--deep);border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">🎉 Bonus Discount</p>
+      <h2 class="display-md">Spin & Win</h2>
+      <div class="section-divider"></div>
+      <p style="color:var(--text-muted)">
+        Spin the wheel and unlock an extra discount coupon!
+      </p>
+    </div>
+
+    <div style="text-align:center">
+
+      <div style="position:relative;width:320px;height:320px;margin:auto">
+        <div style="
+          position:absolute;
+          top:-20px;
+          left:50%;
+          transform:translateX(-50%);
+          font-size:40px;
+          z-index:10;">
+          ▼
+        </div>
+
+        <div id="wheel" style="
+          width:320px;
+          height:320px;
+          border-radius:50%;
+          border:8px solid #fff;
+          transition:transform 5s ease-out;
+          background:
+          conic-gradient(
+            #ff4d4d 0deg 60deg,
+            #ffaa00 60deg 120deg,
+            #00cc66 120deg 180deg,
+            #3399ff 180deg 240deg,
+            #cc66ff 240deg 300deg,
+            #ff66b2 300deg 360deg
+          );
+          display:flex;
+          align-items:center;
+          justify-content:center;">
+          <div style="
+            width:80px;
+            height:80px;
+            border-radius:50%;
+            background:#111;
+            border:4px solid #fff;">
+          </div>
+        </div>
+      </div>
+
+      <button id="spinBtn"
+        class="btn btn-red"
+        style="margin-top:30px;padding:15px 35px">
+        Spin Now
+      </button>
+
+      <h3 id="result"
+        style="margin-top:25px;color:white">
+      </h3>
+
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">URBAN<span>DRIP</span></div>
+          <p class="footer-desc">Bhutan's leading streetwear platform. Where ancient culture meets urban edge.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn">f</a>
+            <a href="#" class="social-btn">ig</a>
+            <a href="#" class="social-btn">tw</a>
+            <a href="#" class="social-btn">yt</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Shop</div>
+          <ul class="footer-links">
+            <li><a href="new.html">New Arrivals</a></li>
+            <li><a href="men.html">Men</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="kids.html">Kids</a></li>
+            <li><a href="footwear.html">Footwear</a></li>
+            <li><a href="headwear.html">Headwear</a></li>
+            <li><a href="sale.html">Sale</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Company</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="bestsellers.html">Best Sellers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Help</div>
+          <ul class="footer-links">
+            <li><a href="contact.html">Shipping Policy</a></li>
+            <li><a href="contact.html">Returns & Exchanges</a></li>
+            <li><a href="contact.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Urban Drip. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Service</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileNav').classList.add('open'));
+  document.getElementById('navClose').addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'));
+
+  // Countdown timer
+  const endTime = new Date().getTime() + (2 * 24 * 60 * 60 * 1000) + (15 * 60 * 60 * 1000) + (30 * 60 * 1000);
+  function updateTimer() {
+    const now = new Date().getTime();
+    const diff = endTime - now;
+    if (diff <= 0) return;
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const s = Math.floor((diff % (1000*60)) / 1000);
+    document.getElementById('days').textContent = String(d).padStart(2,'0');
+    document.getElementById('hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('mins').textContent = String(m).padStart(2,'0');
+    document.getElementById('secs').textContent = String(s).padStart(2,'0');
+  }
+  updateTimer();
+  setInterval(updateTimer, 1000);
+
+  // Spin & Win Game
+
+const wheel = document.getElementById("wheel");
+const spinBtn = document.getElementById("spinBtn");
+const result = document.getElementById("result");
+
+const prizes = [
+  "10% OFF",
+  "15% OFF",
+  "20% OFF",
+  "25% OFF",
+  "30% OFF",
+  "50% OFF"
+];
+
+let spinning = false;
+
+spinBtn.addEventListener("click", () => {
+
+  if (spinning) return;
+
+  spinning = true;
+
+  const prizeIndex = Math.floor(Math.random() * prizes.length);
+
+  const segmentAngle = 360 / prizes.length;
+
+  const rotation =
+    360 * 5 +
+    (360 - prizeIndex * segmentAngle - segmentAngle / 2);
+
+  wheel.style.transform = `rotate(${rotation}deg)`;
+
+  setTimeout(() => {
+
+    result.innerHTML =
+      `🎉 Congratulations! You won <strong>${prizes[prizeIndex]}</strong>`;
+
+    spinning = false;
+
+  }, 5000);
+
+});
+</script>
+</body>
+</html>

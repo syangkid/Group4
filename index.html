@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Urban Drip - Bhutanese Streetwear</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo active">URBAN<span>DRIP</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="new.html">New</a></li>
+        <li><a href="brands.html">Brands</a></li>
+        <li><a href="men.html">Men</a></li>
+        <li><a href="women.html">Women</a></li>
+        <li><a href="kids.html">Kids</a></li>
+        <li><a href="footwear.html">Footwear</a></li>
+        <li><a href="headwear.html">Headwear</a></li>
+        <li><a href="bestsellers.html">Best Sellers</a></li>
+        <li><a href="sale.html" class="text-red">Sale</a></li>
+      </ul>
+      <div class="nav-icons">
+        <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="navClose">✕</button>
+    <a href="index.html" class="navbar-logo" style="font-size:32px">URBAN<span style="color:var(--accent)">DRIP</span></a>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="new.html">New</a></li>
+      <li><a href="brands.html">Brands</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kids.html">Kids</a></li>
+      <li><a href="footwear.html">Footwear</a></li>
+      <li><a href="headwear.html">Headwear</a></li>
+      <li><a href="bestsellers.html">Best Sellers</a></li>
+      <li><a href="sale.html" style="color:var(--accent2)">Sale</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="./image/logo.png" alt="Urban Drip Hero" class="hero-bg-img"/>
+    </div>
+    <div class="hero-content container">
+      <h1 class="hero-title">URBAN<span class="accent-line">DRIP</span></h1>
+      <p class="hero-subtitle">No Hype. Just Function. Pure Culture.</p>
+      <div class="hero-actions">
+        <a href="new.html" class="btn btn-primary">Shop New Arrivals</a>
+        <a href="about.html" class="btn btn-outline">Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT PROMOS -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="display-md">Spotlight Drops</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="promo-grid">
+        <div class="promo-card">
+          <div class="promo-card-bg">
+            <img src="./image/Druk Hoodie.webp" alt="" class="promo-card-bg-img"/>
+          </div>
+          <div class="promo-card-content">
+            <span class="promo-off-badge">30% OFF</span>
+            <h3 class="display-md" style="margin-bottom:8px">Druk Hoodie<br/>Collection</h3>
+            <p style="font-size:13px;color:var(--text-light);margin-bottom:16px">Crafted for the streets of Thimphu</p>
+            <a href="#" class="btn btn-primary btn-sm">Shop Now</a>
+          </div>
+        </div>
+        <div class="promo-card">
+          <div class="promo-card-bg">
+            <img src="./image/Dragon Tee.jpg" alt="" class="promo-card-bg-img"/>
+          </div>
+          <div class="promo-card-content">
+            <span class="promo-off-badge">30% OFF</span>
+            <h3 class="display-md" style="margin-bottom:8px">Dragon Tee<br/>Series</h3>
+            <p style="font-size:13px;color:var(--text-light);margin-bottom:16px">Limited edition Bhutanese prints</p>
+            <a href="#" class="btn btn-primary btn-sm">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY NAV TILES -->
+  <section class="section-pad-sm" style="background:var(--deep)">
+    <div class="container">
+      <div class="section-header text-center">
+      <p class="eyebrow">Browse by Category</p>
+      <h2 class="display-md">Shop The Collection</h2>
+      <div class="section-divider center"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:40px">
+      <a href="men.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:28px 16px;text-align:center;transition:all 0.3s;display:block" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:36px;margin-bottom:12px">👔</div>
+        <div class="sub-heading" style="font-size:16px">Men</div>
+      </a>
+      <a href="women.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:28px 16px;text-align:center;transition:all 0.3s;display:block" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:36px;margin-bottom:12px">👗</div>
+        <div class="sub-heading" style="font-size:16px">Women</div>
+      </a>
+      <a href="kids.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:28px 16px;text-align:center;transition:all 0.3s;display:block" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:36px;margin-bottom:12px">🧒</div>
+        <div class="sub-heading" style="font-size:16px">Kids</div>
+      </a>
+      <a href="footwear.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:28px 16px;text-align:center;transition:all 0.3s;display:block" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:36px;margin-bottom:12px">👟</div>
+        <div class="sub-heading" style="font-size:16px">Footwear</div>
+      </a>
+      <a href="headwear.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:28px 16px;text-align:center;transition:all 0.3s;display:block" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:36px;margin-bottom:12px">🧢</div>
+        <div class="sub-heading" style="font-size:16px">Headwear</div>
+      </a>
+    </div>
+    </div>
+  </section>
+
+  <!-- BEST SELLERS -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="flex-between mb-32">
+        <div>
+          <h2 class="display-md">Best Sellers</h2>
+          <div class="section-divider"></div>
+        </div>
+        <a href="bestsellers.html" class="btn btn-outline btn-sm">View All</a>
+      </div>
+      <div class="product-grid">
+        <!-- Card 1 -->
+        <div class="product-card fade-in">
+          <div class="product-card-img">
+          <div class="placeholder-img">
+            <img src="./image/Dragon Bomber Jacket.webp" alt="Druk Street Hoodie"/>
+          </div>
+          <span class="product-badge badge-best">Best Seller</span>
+        </div>
+        <div class="product-card-body">
+          <p class="product-brand">Druk Lab</p>
+          <p class="product-name">Dragon Bomber Jacket</p>
+          <div class="product-price">
+            <span class="price-current">Nu. 3,500</span>
+          </div>
+          <div class="stars mt-8">★★★★★</div>
+        </div>
+        <div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div>
+      </div>
+      <!-- Card 2 -->
+      <div class="product-card fade-in-2">
+        <div class="product-card-img">
+          <div class="placeholder-img">
+            <img src="./image/Dragon Tee.jpg" alt="Tashi Tee"/>
+          </div>
+          <span class="product-badge badge-new">New</span>
+        </div>
+        <div class="product-card-body">
+          <p class="product-brand">Paro Collective</p>
+          <p class="product-name">Tashi Graphic Tee</p>
+          <div class="product-price">
+            <span class="price-current">Nu. 650</span>
+          </div>
+          <div class="stars mt-8">★★★★☆</div>
+        </div>
+        <div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div>
+      </div>
+      <!-- Card 3 -->
+      <div class="product-card fade-in-3">
+        <div class="product-card-img">
+          <div class="placeholder-img">
+            <img src="./image/Dragon Cargo Pants.jpg" alt="Dragon Cargo Pants"/>
+          </div>
+          <span class="product-badge badge-sale">-25%</span>
+        </div>
+        <div class="product-card-body">
+          <p class="product-brand">Dzong Street</p>
+          <p class="product-name">Dragon Cargo Pants</p>
+          <div class="product-price">
+            <span class="price-current">Nu. 1,800</span>
+            <span class="price-original">Nu. 2,400</span>
+            <span class="price-discount">-25%</span>
+          </div>
+          <div class="stars mt-8">★★★★★</div>
+        </div>
+        <div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div>
+      </div>
+      <!-- Card 4 -->
+      <div class="product-card fade-in">
+        <div class="product-card-img">
+          <div class="placeholder-img">
+            <img src="./image/Thunder Bomber Jacket.webp" alt="Thunder Jacket"/>
+          </div>
+          <span class="product-badge badge-hot">Hot</span>
+        </div>
+        <div class="product-card-body">
+          <p class="product-brand">Urban Drip</p>
+          <p class="product-name">Thunder Bomber Jacket</p>
+          <div class="product-price">
+            <span class="price-current">Nu. 3,500</span>
+          </div>
+          <div class="stars mt-8">★★★★★</div>
+        </div>
+        <div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW ARRIVALS STRIP -->
+  <section class="section-pad" style="background:var(--deep)">
+    <div class="container">
+      <div class="flex-between mb-32">
+        <div>
+          <h2 class="display-md">New Arrivals</h2>
+          <div class="section-divider"></div>
+        </div>
+        <a href="new.html" class="btn btn-outline btn-sm">See All New</a>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Monastery Wind Jacket.png" alt=""></div>
+            <span class="product-badge badge-new">New</span></div>
+            <div class="product-card-body">
+              <p class="product-brand">Druk Lab</p>
+              <p class="product-name">Monastery Wind Jacket</p>
+              <div class="product-price"><span class="price-current">Nu. 2,800</span></div>
+            </div>
+            <div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-img">
+            <div class="placeholder-img">
+             <img src="./image/Paro Valley Joggers.png" alt="">
+            </div><span class="product-badge badge-new">New</span></div>
+            <div class="product-card-body">
+              <p class="product-brand">Urban Drip</p>
+              <p class="product-name">Paro Valley Joggers</p>
+              <div class="product-price"><span class="price-current">Nu. 1,400</span></div>
+            </div>
+            <div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-img">
+            <div class="placeholder-img">
+              <img src="./image/Summit Crewneck.webp" alt="">
+            </div><span class="product-badge badge-new">New</span></div>
+            <div class="product-card-body">
+              <p class="product-brand">Tiger Nest Co.</p>
+              <p class="product-name">Summit Crewneck</p>
+              <div class="product-price"><span class="price-current">Nu. 990</span></div>
+            </div>
+            <div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div>
+        </div>
+        <div class="product-card">
+          <div class="product-card-img">
+            <div class="placeholder-img">
+              <img src="./image/Prayer Flag Tee.png" alt="">
+            </div><span class="product-badge badge-new">New</span></div>
+            <div class="product-card-body">
+              <p class="product-brand">Dochula Co.</p>
+              <p class="product-name">Prayer Flag Tee</p>
+              <div class="product-price"><span class="price-current">Nu. 750</span></div>
+            </div>
+            <div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECONDARY PROMO BANNER -->
+  <section class="promo-banner">
+    <div class="container promo-grid">
+      <div>
+        <p class="promo-label">Limited Time</p>
+        <h2 class="display-lg promo-title">Big Sale<br/>50% Off</h2>
+        <p class="promo-text">Shop our massive clearance event. Selected styles up to 50% off for a limited time only.</p>
+        <a href="sale.html" class="btn promo-btn">Shop the Sale</a>
+      </div>
+      <div class="promo-right">
+        <div class="promo-box">
+          <div class="promo-percent">50%</div>
+          <div class="promo-off">OFF</div>
+          <div class="promo-divider"></div>
+          <p class="promo-items">Selected Items</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">URBAN<span>DRIP</span></div>
+          <p class="footer-desc">Bhutan's leading streetwear platform. Where ancient culture meets urban edge.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn">f</a>
+            <a href="#" class="social-btn">ig</a>
+            <a href="#" class="social-btn">tw</a>
+            <a href="#" class="social-btn">yt</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Shop</div>
+          <ul class="footer-links">
+            <li><a href="new.html">New Arrivals</a></li>
+            <li><a href="men.html">Men</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="kids.html">Kids</a></li>
+            <li><a href="footwear.html">Footwear</a></li>
+            <li><a href="headwear.html">Headwear</a></li>
+            <li><a href="sale.html">Sale</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Company</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="bestsellers.html">Best Sellers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Help</div>
+          <ul class="footer-links">
+            <li><a href="contact.html">Shipping Policy</a></li>
+            <li><a href="contact.html">Returns & Exchanges</a></li>
+            <li><a href="contact.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Urban Drip. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Service</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navClose = document.getElementById('navClose');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn.addEventListener('click', () => mobileNav.classList.add('open'));
+    navClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+  </script>
+</body>
+</html>

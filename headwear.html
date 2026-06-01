@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Headwear - Urban Drip</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .hw-hero {
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #050505;
+    }
+    .hw-hero-bg {
+      position: absolute; 
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+      filter: blur(2px);
+      z-index: 1;
+    }
+    .hw-hero::before {
+      content: '';
+      position: absolute; 
+      inset: 0;
+      z-index: 2;
+    }
+    .hw-hero-content { position: relative; z-index: 3; }
+    .hat-type-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin: 48px 0;
+    }
+    .hat-type-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex; flex-direction: column;
+      align-items: center; gap: 10px;
+    }
+    .hat-type-card:hover, .hat-type-card.active {
+      border-color: var(--accent);
+      background: rgba(200,168,75,0.06);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(200,168,75,0.1);
+    }
+    .hat-type-card .hat-icon { font-size: 36px; }
+    .hat-type-card .hat-name {
+      font-family: var(--font-sub); font-size: 11px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--text-light);
+    }
+    .hat-type-card .hat-count {
+      font-size: 11px; color: var(--text-muted);
+    }
+    .hat-type-card.active .hat-name { color: var(--accent); }
+    .hw-featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 20px;
+      margin-bottom: 64px;
+    }
+    .hw-featured-grid .hw-wide {
+      grid-column: span 2;
+    }
+    .hw-wide-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+    .hw-wide-card:hover { border-color: var(--accent); }
+    .hw-wide-card .card-img {
+      background: linear-gradient(135deg, #1a1a1a, #242424);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-sub); font-size: 12px;
+      letter-spacing: 3px; color: var(--text-muted); min-height: 280px;
+      position: relative; overflow: hidden;
+    }
+    .hw-wide-card .card-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hw-wide-card .card-body {
+      padding: 32px; display: flex;
+      flex-direction: column; justify-content: center;
+    }
+
+    @media (max-width: 1024px) {
+      .hat-type-grid { grid-template-columns: repeat(3,1fr); }
+    }
+    @media (max-width: 768px) {
+      .hw-hero::before {
+        background: rgba(5, 5, 5, 0.75); }
+      .hat-type-grid { grid-template-columns: repeat(3,1fr); }
+      .hw-featured-grid { grid-template-columns: 1fr; }
+      .hw-featured-grid .hw-wide { grid-column: span 1; }
+      .hw-wide-card { grid-template-columns: 1fr; }
+      .hw-wide-card .card-img { min-height: 200px; }
+      .hw-stat-strip { flex-wrap: wrap; }
+      .hw-stat-item { flex: 0 0 50%; border-bottom: 1px solid var(--border); }
+    }
+    @media (max-width: 480px) {
+      .hat-type-grid { grid-template-columns: repeat(2,1fr); }
+      .hw-stat-item { flex: 0 0 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">URBAN<span>DRIP</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="new.html">New</a></li>
+      <li><a href="brands.html">Brands</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kids.html">Kids</a></li>
+      <li><a href="footwear.html">Footwear</a></li>
+      <li><a href="headwear.html" class="active">Headwear</a></li>
+      <li><a href="bestsellers.html">Best Sellers</a></li>
+      <li><a href="sale.html" class="text-red">Sale</a></li>
+    </ul>
+    <div class="nav-icons">
+      <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="navClose">✕</button>
+  <a href="index.html" class="navbar-logo" style="font-size:32px">URBAN<span style="color:var(--accent)">DRIP</span></a>
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="new.html">New</a></li><li><a href="brands.html">Brands</a></li>
+    <li><a href="men.html">Men</a></li><li><a href="women.html">Women</a></li><li><a href="kids.html">Kids</a></li>
+    <li><a href="footwear.html">Footwear</a></li><li><a href="headwear.html" style="color:var(--accent)">Headwear</a></li>
+    <li><a href="bestsellers.html">Best Sellers</a></li><li><a href="sale.html" style="color:var(--accent2)">Sale</a></li>
+  </ul>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hw-hero">
+  </div>
+  <img src="./image/Banner Headwear.webp" alt="Headwear Collection" class="hw-hero-bg">
+  <div class="container hw-hero-content">
+    <p class="eyebrow fade-in" style="margin-bottom:14px">Cap Culture</p>
+    <h1 class="display-xl fade-in-2" style="line-height:0.9">TOP<br/>YOUR<br/><span class="text-accent">DRIP</span></h1>
+    <p class="fade-in-3" style="color:var(--text-light);font-family:var(--font-sub);font-size:18px;letter-spacing:2px;margin:24px 0 36px;max-width:400px;line-height:1.6">Caps, beanies, snapbacks and more. 150+ styles for every head.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap" class="fade-in-3">
+    </div>
+  </div>
+</section>
+
+<!-- ── FULL SHOP WITH FILTER ── -->
+<section id="headwear-shop" class="section-pad" style="background:var(--deep)">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span class="current">Headwear</span></div>
+    <div class="shop-layout">
+
+      <!-- FILTER -->
+      <aside class="filter-sidebar">
+        <div class="filter-title">Filter</div>
+        <div class="filter-group">
+          <div class="filter-group-label">Availability</div>
+          <label class="filter-option"><input type="checkbox" checked/> In Stock (142)</label>
+          <label class="filter-option"><input type="checkbox"/> Pre-Order (8)</label>
+        </div>
+        <div class="filter-group">
+          <div class="filter-group-label">Hat Type</div>
+          <label class="filter-option"><input type="checkbox" checked/> Snapback (48)</label>
+          <label class="filter-option"><input type="checkbox"/> Dad Cap (35)</label>
+          <label class="filter-option"><input type="checkbox"/> Beanie (30)</label>
+          <label class="filter-option"><input type="checkbox"/> Bucket Hat (22)</label>
+          <label class="filter-option"><input type="checkbox"/> Fitted (18)</label>
+          <label class="filter-option"><input type="checkbox"/> Headband (12)</label>
+        </div>
+        <button class="btn btn-primary w-100" style="margin-top:8px">Apply Filters</button>
+        <button class="btn btn-outline w-100" style="margin-top:8px">Clear All</button>
+      </aside>
+
+      <!-- PRODUCTS -->
+      <div>
+        <div class="sort-bar">
+          <span class="result-count">150 Products</span>
+          <select>
+            <option>Sort: Featured</option>
+            <option>Newest First</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Best Sellers</option>
+          </select>
+        </div>
+
+        <div class="product-grid">
+          <div class="product-card"><div class="product-card-img" style="aspect-ratio:1/1"><div class="placeholder-img">
+            <img src="./image/Dragon Snapback.webp" alt="">
+          </div><span class="product-badge badge-best">Best Seller</span></div><div class="product-card-body"><p class="product-brand">Urban Drip</p><p class="product-name">Dragon Snapback Vol.3</p><div class="product-price"><span class="price-current">Nu. 680</span></div><div class="stars mt-8">★★★★★</div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img" style="aspect-ratio:1/1"><div class="placeholder-img">
+            <img src="./image/Himalaya Beanie.jpg" alt="">
+          </div><span class="product-badge badge-hot">Hot</span></div><div class="product-card-body"><p class="product-brand">Druk Lab</p><p class="product-name">Himalaya Beanie</p><div class="product-price"><span class="price-current">Nu. 450</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img" style="aspect-ratio:1/1"><div class="placeholder-img">
+            <img src="./image/Dragon Bucket Hat.webp" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Paro Collective</p><p class="product-name">Dragon Bucket Hat</p><div class="product-price"><span class="price-current">Nu. 520</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img" style="aspect-ratio:1/1"><div class="placeholder-img">
+            <img src="./image/Dad Cap.jpg" alt="">
+          </div><span class="product-badge badge-sale">-15%</span></div><div class="product-card-body"><p class="product-brand">Tiger Nest Co.</p><p class="product-name">Dad Cap</p><div class="product-price"><span class="price-current">Nu. 374</span><span class="price-original">Nu. 440</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+        </div>
+
+        <div class="pagination">
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">URBAN<span>DRIP</span></div>
+          <p class="footer-desc">Bhutan's leading streetwear platform. Where ancient culture meets urban edge.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn">f</a>
+            <a href="#" class="social-btn">ig</a>
+            <a href="#" class="social-btn">tw</a>
+            <a href="#" class="social-btn">yt</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Shop</div>
+          <ul class="footer-links">
+            <li><a href="new.html">New Arrivals</a></li>
+            <li><a href="men.html">Men</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="kids.html">Kids</a></li>
+            <li><a href="footwear.html">Footwear</a></li>
+            <li><a href="headwear.html">Headwear</a></li>
+            <li><a href="sale.html">Sale</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Company</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="bestsellers.html">Best Sellers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Help</div>
+          <ul class="footer-links">
+            <li><a href="contact.html">Shipping Policy</a></li>
+            <li><a href="contact.html">Returns & Exchanges</a></li>
+            <li><a href="contact.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Urban Drip. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Service</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileNav').classList.add('open'));
+  document.getElementById('navClose').addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'));
+  document.querySelectorAll('.hat-type-card').forEach(card => {
+    card.addEventListener('click', () => { document.querySelectorAll('.hat-type-card').forEach(c => c.classList.remove('active')); card.classList.add('active'); });
+  });
+</script>
+</body>
+</html>

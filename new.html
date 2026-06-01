@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>New Arrivals - Urban Drip</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">URBAN<span>DRIP</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="new.html" class="active">New</a></li>
+      <li><a href="brands.html">Brands</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kids.html">Kids</a></li>
+      <li><a href="footwear.html">Footwear</a></li>
+      <li><a href="headwear.html">Headwear</a></li>
+      <li><a href="bestsellers.html">Best Sellers</a></li>
+      <li><a href="sale.html" class="text-red">Sale</a></li>
+    </ul>
+    <div class="nav-icons">
+      <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="navClose">✕</button>
+  <a href="index.html" class="navbar-logo" style="font-size:32px">URBAN<span style="color:var(--accent)">DRIP</span></a>
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="new.html" style="color:var(--accent)">New</a></li>
+    <li><a href="brands.html">Brands</a></li><li><a href="men.html">Men</a></li><li><a href="women.html">Women</a></li>
+    <li><a href="kids.html">Kids</a></li><li><a href="footwear.html">Footwear</a></li><li><a href="headwear.html">Headwear</a></li>
+    <li><a href="bestsellers.html">Best Sellers</a></li><li><a href="sale.html" style="color:var(--accent2)">Sale</a></li>
+  </ul>
+</div>
+
+<!-- PAGE BANNER -->
+<section class="page-banner">
+  <div class="page-banner-decor"></div>
+  <img src="./image/logo.png" alt="" class="page-banner-img"/>
+  <div class="page-banner-content">
+    <h1 class="display-lg fade-in-2" style="margin:12px 0">New <span class="text-accent">Arrivals</span></h1>
+    <p style="color:var(--text-muted);font-size:16px;margin-top:8px" class="fade-in-3">450+ new styles just landed. Be the first to wear.</p>
+  </div>
+</section>
+
+<!-- SHOP LAYOUT WITH FILTER -->
+<section class="section-pad">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>›</span><span class="current">New Arrivals</span>
+    </div>
+    <div class="shop-layout">
+      <!-- SIDEBAR FILTER -->
+      <aside class="filter-sidebar">
+        <div class="filter-title">Filter</div>
+
+        <div class="filter-group">
+          <div class="filter-group-label">Availability</div>
+          <label class="filter-option"><input type="checkbox" checked/> In Stock (412)</label>
+          <label class="filter-option"><input type="checkbox"/> Coming Soon (38)</label>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-label">Size</div>
+          <div class="size-selector">
+            <button class="size-btn">XS</button>
+            <button class="size-btn active">S</button>
+            <button class="size-btn">M</button>
+            <button class="size-btn">L</button>
+            <button class="size-btn">XL</button>
+            <button class="size-btn">XXL</button>
+          </div>
+        </div>
+
+        <button class="btn btn-primary w-100" style="margin-top:8px">Apply Filters</button>
+        <button class="btn btn-outline w-100" style="margin-top:8px">Clear All</button>
+      </aside>
+
+      <!-- PRODUCT AREA -->
+      <div>
+        <div class="sort-bar">
+          <span class="result-count">450 Products</span>
+          <select>
+            <option>Sort by: Newest</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Best Sellers</option>
+            <option>Most Popular</option>
+          </select>
+        </div>
+
+        <div class="product-grid">
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Monastery Wind Jacket.png" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Urban Drip</p><p class="product-name">Monastery Wind Jacket</p><div class="product-price"><span class="price-current">Nu. 2,800</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Dragon Tee.jpg" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Paro Collective</p><p class="product-name">Tashi Graphic Tee</p><div class="product-price"><span class="price-current">Nu. 650</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Paro Valley Joggers.png" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Druk Lab</p><p class="product-name">Paro Valley Joggers</p><div class="product-price"><span class="price-current">Nu. 1,400</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Summit Crewneck.webp" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Tiger Nest Co.</p><p class="product-name">Summit Crewneck</p><div class="product-price"><span class="price-current">Nu. 990</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Prayer Flag Tee.png" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Dochula Co.</p><p class="product-name">Prayer Flag Tee</p><div class="product-price"><span class="price-current">Nu. 750</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Bhutan Cargo Shorts.webp" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Dzong Street</p><p class="product-name">Bhutan Cargo Shorts</p><div class="product-price"><span class="price-current">Nu. 1,100</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Thunder Bomber Jacket.webp" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Urban Drip</p><p class="product-name">Dragon Bomber Jacket</p><div class="product-price"><span class="price-current">Nu. 3,500</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Street Hoodie Vol.3.webp" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Paro Collective</p><p class="product-name">Street Hoodie Vol.3</p><div class="product-price"><span class="price-current">Nu. 1,200</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Yathra Jacket.webp" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Tiger Nest Co.</p><p class="product-name">Yathra Jacket</p><div class="product-price"><span class="price-current">Nu. 1,650</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Striped Rugby Shirt.jpg" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Druk Lab</p><p class="product-name">Striped Rugby Shirt</p><div class="product-price"><span class="price-current">Nu. 880</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Thimphu Track Jacket.png" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Dochula Co.</p><p class="product-name">Thimphu Track Jacket</p><div class="product-price"><span class="price-current">Nu. 2,100</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Chorten Graphic Tee.jpg" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Urban Drip</p><p class="product-name">Chorten Graphic Tee</p><div class="product-price"><span class="price-current">Nu. 700</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="pagination">
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">4</button>
+          <button class="page-btn">5</button>
+          <button class="page-btn">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">URBAN<span>DRIP</span></div>
+          <p class="footer-desc">Bhutan's leading streetwear platform. Where ancient culture meets urban edge.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn">f</a>
+            <a href="#" class="social-btn">ig</a>
+            <a href="#" class="social-btn">tw</a>
+            <a href="#" class="social-btn">yt</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Shop</div>
+          <ul class="footer-links">
+            <li><a href="new.html">New Arrivals</a></li>
+            <li><a href="men.html">Men</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="kids.html">Kids</a></li>
+            <li><a href="footwear.html">Footwear</a></li>
+            <li><a href="headwear.html">Headwear</a></li>
+            <li><a href="sale.html">Sale</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Company</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="bestsellers.html">Best Sellers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Help</div>
+          <ul class="footer-links">
+            <li><a href="contact.html">Shipping Policy</a></li>
+            <li><a href="contact.html">Returns & Exchanges</a></li>
+            <li><a href="contact.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Urban Drip. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Service</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileNav').classList.add('open'));
+  document.getElementById('navClose').addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'));
+</script>
+</body>
+</html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Best Sellers - Urban Drip</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ── Best Sellers Specific ── */
+    .bs-hero {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #080808;
+    }
+    .bs-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(200,168,75,0.12) 0%, transparent 65%);
+    }
+    .bs-hero::after {
+      content: '#1';
+      position: absolute; right: 5%; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(200px,35vw,480px);
+      color: rgba(200,168,75,0.04);
+      pointer-events: none; line-height: 1;
+    }
+    .bs-hero img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.2;
+    }
+    .bs-hero-content { position: relative; z-index: 2; }
+
+    /* Rank badge on product cards */
+    .rank-badge {
+      position: absolute;
+      top: 12px; right: 12px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 14px;
+      border: 2px solid;
+      z-index: 2;
+    }
+    .rank-1 { background: var(--accent); border-color: var(--accent); color: var(--black); }
+    .rank-2 { background: #888; border-color: #888; color: #fff; }
+    .rank-3 { background: #a0522d; border-color: #a0522d; color: #fff; }
+    .rank-n { background: var(--card-bg); border-color: var(--border); color: var(--text-muted); }
+
+    /* Top 3 podium showcase */
+    .podium {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 80px;
+    }
+    .podium-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      transition: all var(--transition);
+    }
+    .podium-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .podium-card.rank1 {
+      border-color: var(--accent);
+      box-shadow: 0 0 40px rgba(200,168,75,0.15);
+    }
+    .podium-card .podium-img {
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #1e1a14, #2a2010);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-sub); font-size: 12px;
+      letter-spacing: 3px; color: var(--text-muted);
+      position: relative; overflow: hidden;
+    }
+    .podium-card .podium-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .podium-num {
+      position: absolute; top: 12px; left: 12px;
+      font-family: var(--font-display); font-size: 64px;
+      color: rgba(255,255,255,0.06);
+      line-height: 1; pointer-events: none;
+    }
+    .podium-rank-label {
+      position: absolute; top: 16px; right: 16px;
+      font-family: var(--font-display); font-size: 16px;
+      padding: 4px 12px; border-radius: 4px;
+    }
+    .podium-body { padding: 20px; }
+    .podium-crown { text-align: center; font-size: 32px; margin-bottom: 8px; }
+
+    /* Weekly chart table */
+    .chart-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .chart-table th {
+      font-family: var(--font-sub); font-size: 10px;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--text-muted); padding: 12px 16px;
+      text-align: left; border-bottom: 1px solid var(--border);
+    }
+    .chart-table td {
+      padding: 16px; border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    .chart-table tr:last-child td { border-bottom: none; }
+    .chart-table tr:hover td { background: rgba(200,168,75,0.03); }
+    .chart-rank-num {
+      font-family: var(--font-display); font-size: 24px;
+      color: var(--text-muted); width: 48px; text-align: center;
+    }
+    .chart-rank-num.top3 { color: var(--accent); }
+    .chart-img-cell {
+      width: 60px; height: 60px;
+      background: #1e1a14; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .chart-img-cell img { width: 100%; height: 100%; object-fit: cover; }
+    .chart-product-name {
+      font-family: var(--font-sub); font-size: 15px;
+      font-weight: 700; color: var(--white);
+    }
+    .chart-brand {
+      font-family: var(--font-sub); font-size: 10px;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-top: 2px;
+    }
+    .chart-trend {
+      font-family: var(--font-sub); font-size: 12px;
+      font-weight: 700;
+    }
+    .trend-up { color: #4ecb71; }
+    .trend-down { color: var(--accent2); }
+    .trend-same { color: var(--text-muted); }
+    .chart-sold-bar-wrap {
+      width: 100px; height: 4px;
+      background: var(--border); border-radius: 2px; overflow: hidden;
+    }
+    .chart-sold-bar {
+      height: 100%; background: var(--accent); border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .podium { grid-template-columns: 1fr; }
+      .podium-card { order: 0; }
+      .chart-table th:nth-child(5),
+      .chart-table td:nth-child(5) { display: none; }
+    }
+    @media (max-width: 480px) {
+      .chart-table th:nth-child(4),
+      .chart-table td:nth-child(4) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">URBAN<span>DRIP</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="new.html">New</a></li>
+      <li><a href="brands.html">Brands</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kids.html">Kids</a></li>
+      <li><a href="footwear.html">Footwear</a></li>
+      <li><a href="headwear.html">Headwear</a></li>
+      <li><a href="bestsellers.html" class="active">Best Sellers</a></li>
+      <li><a href="sale.html" class="text-red">Sale</a></li>
+    </ul>
+    <div class="nav-icons">
+      <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="navClose">✕</button>
+  <a href="index.html" class="navbar-logo" style="font-size:32px">URBAN<span style="color:var(--accent)">DRIP</span></a>
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="new.html">New</a></li><li><a href="brands.html">Brands</a></li>
+    <li><a href="men.html">Men</a></li><li><a href="women.html">Women</a></li><li><a href="kids.html">Kids</a></li>
+    <li><a href="footwear.html">Footwear</a></li><li><a href="headwear.html">Headwear</a></li>
+    <li><a href="bestsellers.html" style="color:var(--accent)">Best Sellers</a></li>
+    <li><a href="sale.html" style="color:var(--accent2)">Sale</a></li>
+  </ul>
+</div>
+
+<!-- ── HERO ── -->
+<section class="bs-hero">
+  <img src="./image/logo.png" alt="Best Sellers"/>
+  <div class="container bs-hero-content">
+    <p class="eyebrow fade-in" style="margin-bottom:14px">Customer Favourites</p>
+    <h1 class="display-xl fade-in-2" style="line-height:0.88;max-width:700px">
+      BEST<br/><span class="text-accent">SELLERS</span>
+    </h1>
+    <p class="fade-in-3" style="color:var(--text-light);font-family:var(--font-sub);font-size:18px;letter-spacing:2px;margin:24px 0 36px;max-width:460px;line-height:1.6">The pieces our customers love most. Ranked by sales, powered by culture.</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap" class="fade-in-3">
+      <div style="background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.3);border-radius:8px;padding:16px 24px;display:flex;align-items:center;gap:12px">
+        <span style="font-size:28px">⭐</span>
+        <div>
+          <p style="font-family:var(--font-display);font-size:24px;color:var(--accent);line-height:1">4.9/5</p>
+          <p style="font-family:var(--font-sub);font-size:10px;letter-spacing:2px;color:var(--text-muted)">AVG. RATING</p>
+        </div>
+      </div>
+      <div style="background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.3);border-radius:8px;padding:16px 24px;display:flex;align-items:center;gap:12px">
+        <span style="font-size:28px">🛒</span>
+        <div>
+          <p style="font-family:var(--font-display);font-size:24px;color:var(--accent);line-height:1">12K+</p>
+          <p style="font-family:var(--font-sub);font-size:10px;letter-spacing:2px;color:var(--text-muted)">UNITS SOLD</p>
+        </div>
+      </div>
+      <div style="background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.3);border-radius:8px;padding:16px 24px;display:flex;align-items:center;gap:12px">
+        <span style="font-size:28px">🔁</span>
+        <div>
+          <p style="font-family:var(--font-display);font-size:24px;color:var(--accent);line-height:1">78%</p>
+          <p style="font-family:var(--font-sub);font-size:10px;letter-spacing:2px;color:var(--text-muted)">REPEAT BUYERS</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PODIUM TOP 3 ── -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2 class="display-md">Top <span class="text-accent">3</span> This Month</h2>
+      <div class="section-divider center"></div>
+      <p style="color:var(--text-muted);margin-top:16px">Updated weekly based on real sales data</p>
+    </div>
+
+    <div class="podium" style="margin-top:48px">
+      <!-- #2 -->
+      <div class="podium-card" style="margin-bottom:0">
+        <div class="podium-crown">🥈</div>
+        <div class="podium-img">
+          <img src="./image/Dragon Cargo Pants.jpg" alt="#2"/>
+          <div class="podium-num">2</div>
+          <div class="podium-rank-label" style="background:#888;color:#fff"></div>
+        </div>
+        <div class="podium-body">
+          <p class="product-brand">Dzong Street</p>
+          <p class="product-name" style="font-family:var(--font-sub);font-size:17px;font-weight:700;margin-bottom:8px">Dragon Cargo Pants</p>
+          <div class="stars" style="margin-bottom:12px">★★★★★ <span style="font-size:12px;color:var(--text-muted)">(342)</span></div>
+          <div class="product-price" style="margin-bottom:16px"><span class="price-current">Nu. 2,400</span></div>
+          <button class="btn-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- #1 CHAMPION -->
+      <div class="podium-card rank1">
+        <div class="podium-crown">👑</div>
+        <div class="podium-img">
+          <img src="./image/Dragon Bomber Jacket.webp" alt="#1 Best Seller"/>
+          <div class="podium-num">1</div>
+          <div class="podium-rank-label" style="background:var(--accent);color:var(--black)"></div>
+        </div>
+        <div class="podium-body">
+          <p class="eyebrow" style="margin-bottom:8px">🏆 Best Seller Overall</p>
+          <p class="product-brand">Druk Lab</p>
+          <p class="product-name" style="font-family:var(--font-sub);font-size:20px;font-weight:700;margin-bottom:8px">Dragon Bomber Jacket</p>
+          <div class="stars" style="margin-bottom:12px">★★★★★ <span style="font-size:12px;color:var(--text-muted)">(617 reviews)</span></div>
+          <div class="product-price" style="margin-bottom:16px"><span class="price-current" style="font-size:22px">Nu. 3,500</span></div>
+          <button class="btn btn-primary w-100">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- #3 -->
+      <div class="podium-card" style="margin-bottom:0">
+        <div class="podium-crown">🥉</div>
+        <div class="podium-img">
+          <img src="./image/Female Tsholham.webp" alt="#3"/>
+          <div class="podium-num">3</div>
+          <div class="podium-rank-label" style="background:#a0522d;color:#fff"></div>
+        </div>
+        <div class="podium-body">
+          <p class="product-brand">Urban Drip</p>
+          <p class="product-name" style="font-family:var(--font-sub);font-size:17px;font-weight:700;margin-bottom:8px">Female Tsholham</p>
+          <div class="stars" style="margin-bottom:12px">★★★★★ <span style="font-size:12px;color:var(--text-muted)">(214)</span></div>
+          <div class="product-price" style="margin-bottom:16px"><span class="price-current">Nu. 3,800</span></div>
+          <button class="btn-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WEEKLY SALES CHART ── -->
+<section class="section-pad-sm" style="background:var(--deep);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="flex-between mb-32">
+      <div>
+        <p class="eyebrow">Live Rankings</p>
+        <h2 class="display-md">Weekly <span class="text-accent">Chart</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div style="font-family:var(--font-sub);font-size:12px;letter-spacing:2px;color:var(--text-muted)">Updated: May 12, 2025</div>
+    </div>
+
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden">
+      <table class="chart-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Product</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Units Sold</th>
+            <th>Trend</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="chart-rank-num top3">1</td>
+            <td><div class="chart-img-cell"><img src="./image/Dragon Bomber Jacket.webp" alt=""/></div></td>
+            <td><div class="chart-product-name">Dragon Bomber Jacket</div><div class="chart-brand">Druk Lab</div></td>
+            <td style="font-family:var(--font-sub);font-weight:700">Nu. 3,500</td>
+            <td><div style="font-size:13px;color:var(--white);margin-bottom:4px">617 sold</div><div class="chart-sold-bar-wrap"><div class="chart-sold-bar" style="width:100%"></div></div></td>
+            <td><span class="chart-trend trend-up">▲ 12%</span></td>
+            <td><button class="btn btn-primary btn-sm">Add</button></td>
+          </tr>
+          <tr>
+            <td class="chart-rank-num top3">2</td>
+            <td><div class="chart-img-cell"><img src="./image/Dragon Cargo Pants.jpg" alt=""/></div></td>
+            <td><div class="chart-product-name">Dragon Cargo Pants</div><div class="chart-brand">Dzong Street</div></td>
+            <td style="font-family:var(--font-sub);font-weight:700">Nu. 2,400</td>
+            <td><div style="font-size:13px;color:var(--white);margin-bottom:4px">342 sold</div><div class="chart-sold-bar-wrap"><div class="chart-sold-bar" style="width:55%"></div></div></td>
+            <td><span class="chart-trend trend-up">▲ 5%</span></td>
+            <td><button class="btn btn-primary btn-sm">Add</button></td>
+          </tr>
+          <tr>
+            <td class="chart-rank-num top3">3</td>
+            <td><div class="chart-img-cell"><img src="./image/Female Tsholham.webp" alt=""></div></td>
+            <td><div class="chart-product-name">Female Tsholham</div><div class="chart-brand">Urban Drip</div></td>
+            <td style="font-family:var(--font-sub);font-weight:700">Nu. 3,800</td>
+            <td><div style="font-size:13px;color:var(--white);margin-bottom:4px">214 sold</div><div class="chart-sold-bar-wrap"><div class="chart-sold-bar" style="width:35%"></div></div></td>
+            <td><span class="chart-trend trend-down">▼ 2%</span></td>
+            <td><button class="btn btn-primary btn-sm">Add</button></td>
+          </tr>
+          <tr>
+            <td class="chart-rank-num">4</td>
+            <td><div class="chart-img-cell"><img src="./image/Dragon Snapback.webp" alt=""></div></td>
+            <td><div class="chart-product-name">Dragon Snapback Vol.3</div><div class="chart-brand">Urban Drip</div></td>
+            <td style="font-family:var(--font-sub);font-weight:700">Nu. 680</td>
+            <td><div style="font-size:13px;color:var(--white);margin-bottom:4px">198 sold</div><div class="chart-sold-bar-wrap"><div class="chart-sold-bar" style="width:32%"></div></div></td>
+            <td><span class="chart-trend trend-up">▲ 18%</span></td>
+            <td><button class="btn btn-primary btn-sm">Add</button></td>
+          </tr>
+          <tr>
+            <td class="chart-rank-num">5</td>
+            <td><div class="chart-img-cell"><img src="./image/Monastery Wind Jacket.png" alt=""></div></td>
+            <td><div class="chart-product-name">Monastery Wind Jacket</div><div class="chart-brand">Druk Lab</div></td>
+            <td style="font-family:var(--font-sub);font-weight:700">Nu. 2,800</td>
+            <td><div style="font-size:13px;color:var(--white);margin-bottom:4px">175 sold</div><div class="chart-sold-bar-wrap"><div class="chart-sold-bar" style="width:28%"></div></div></td>
+            <td><span class="chart-trend trend-same">— 0%</span></td>
+            <td><button class="btn btn-primary btn-sm">Add</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── CATEGORY BEST SELLERS ── -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="eyebrow">By Category</p>
+      <h2 class="display-md">Best In <span class="text-accent">Every Section</span></h2>
+      <div class="section-divider center"></div>
+    </div>
+
+    <!-- TABS BY CATEGORY -->
+    <div class="tabs" style="margin-top:40px">
+      <button class="tab-btn active">All</button>
+      <button class="tab-btn">Men</button>
+      <button class="tab-btn">Women</button>
+      <button class="tab-btn">Kids</button>
+      <button class="tab-btn">Footwear</button>
+      <button class="tab-btn">Headwear</button>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-card-img">
+          <div class="placeholder-img"><img src="./image/Dragon Bomber Jacket.webp" alt="">E</div>
+          <span class="product-badge badge-best">Best Seller</span>
+          <div class="rank-badge rank-1">1</div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-brand">Druk Lab</p>
+          <p class="product-name">Dragon Bomber Jacket</p>
+          <div class="product-price"><span class="price-current">Nu. 3,500</span></div>
+          <div class="stars mt-8">★★★★★ <span style="font-size:11px;color:var(--text-muted)">(617)</span></div>
+        </div>
+        <div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-img">
+          <div class="placeholder-img"><img src="./image/Dragon Cargo Pants.jpg" alt=""></div>
+          <span class="product-badge badge-best">Best Seller</span>
+          <div class="rank-badge rank-2">2</div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-brand">Dzong Street</p>
+          <p class="product-name">Dragon Cargo Pants</p>
+          <div class="product-price"><span class="price-current">Nu. 2,400</span></div>
+          <div class="stars mt-8">★★★★★ <span style="font-size:11px;color:var(--text-muted)">(342)</span></div>
+        </div>
+        <div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-img">
+          <div class="placeholder-img"><img src="./image/Female Tsholham.webp" alt=""></div>
+          <span class="product-badge badge-best">Best Seller</span>
+          <div class="rank-badge rank-3">3</div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-brand">Urban Drip</p>
+          <p class="product-name">Female Tsholham</p>
+          <div class="product-price"><span class="price-current">Nu. 3,800</span></div>
+          <div class="stars mt-8">★★★★★ <span style="font-size:11px;color:var(--text-muted)">(214)</span></div>
+        </div>
+        <div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-img">
+          <div class="placeholder-img"><img src="./image/Dragon Snapback.webp" alt=""></div>
+          <div class="rank-badge rank-n">4</div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-brand">Urban Drip</p>
+          <p class="product-name">Dragon Snapback Vol.3</p>
+          <div class="product-price"><span class="price-current">Nu. 680</span></div>
+          <div class="stars mt-8">★★★★★ <span style="font-size:11px;color:var(--text-muted)">(198)</span></div>
+        </div>
+        <div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div>
+      </div>
+
+    <div class="pagination">
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">›</button>
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">URBAN<span>DRIP</span></div>
+          <p class="footer-desc">Bhutan's leading streetwear platform. Where ancient culture meets urban edge.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn">f</a>
+            <a href="#" class="social-btn">ig</a>
+            <a href="#" class="social-btn">tw</a>
+            <a href="#" class="social-btn">yt</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Shop</div>
+          <ul class="footer-links">
+            <li><a href="new.html">New Arrivals</a></li>
+            <li><a href="men.html">Men</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="kids.html">Kids</a></li>
+            <li><a href="footwear.html">Footwear</a></li>
+            <li><a href="headwear.html">Headwear</a></li>
+            <li><a href="sale.html">Sale</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Company</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="bestsellers.html">Best Sellers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Help</div>
+          <ul class="footer-links">
+            <li><a href="contact.html">Shipping Policy</a></li>
+            <li><a href="contact.html">Returns & Exchanges</a></li>
+            <li><a href="contact.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Urban Drip. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Service</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileNav').classList.add('open'));
+  document.getElementById('navClose').addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'));
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => { document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); });
+  });
+</script>
+</body>
+</html>
