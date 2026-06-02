@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Women's Collection - Urban Drip</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .women-hero {
+      position: relative;
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #050505;
+    }
+    .women-hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.25; 
+      z-index: 1;
+    }
+    .women-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+    .women-hero-left {
+      max-width: 600px;
+      padding: 80px 60px;
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Collection grid with editorial spacing */
+    .women-editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 20px;
+    }
+    .women-editorial-grid .featured-col {
+      grid-row: span 2;
+    }
+    .women-editorial-grid .featured-col .product-card-img {
+      aspect-ratio: 2/3;
+    }
+    .style-guide-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 48px 0;
+    }
+    .style-guide-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      text-align: center;
+      padding: 28px 16px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .style-guide-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .style-guide-card .style-img {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2a1028, #1a0d1a);
+      margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+    }
+    .style-guide-card h4 {
+      font-family: var(--font-sub); font-size: 15px;
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .style-guide-card p { font-size: 12px; color: var(--text-muted); }
+
+    @media (max-width: 768px) {
+      .women-hero::before { background: rgba(5, 5, 5, 0.75); }
+      .women-hero-left { padding: 60px 24px; }
+      .style-guide-grid { grid-template-columns: repeat(2, 1fr); }
+      .women-editorial-grid { grid-template-columns: repeat(2,1fr); }
+      .women-editorial-grid .featured-col { grid-row: span 1; }
+      .women-editorial-grid .featured-col .product-card-img { aspect-ratio: 3/4; }
+    }
+    @media (max-width: 480px) {
+      .style-guide-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">URBAN<span>DRIP</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="new.html">New</a></li>
+      <li><a href="brands.html">Brands</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html" class="active">Women</a></li>
+      <li><a href="kids.html">Kids</a></li>
+      <li><a href="footwear.html">Footwear</a></li>
+      <li><a href="headwear.html">Headwear</a></li>
+      <li><a href="bestsellers.html">Best Sellers</a></li>
+      <li><a href="sale.html" class="text-red">Sale</a></li>
+    </ul>
+    <div class="nav-icons">
+      <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="navClose">✕</button>
+  <a href="index.html" class="navbar-logo" style="font-size:32px">URBAN<span style="color:var(--accent)">DRIP</span></a>
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="new.html">New</a></li><li><a href="brands.html">Brands</a></li>
+    <li><a href="men.html">Men</a></li><li><a href="women.html" style="color:var(--accent)">Women</a></li>
+    <li><a href="kids.html">Kids</a></li><li><a href="footwear.html">Footwear</a></li><li><a href="headwear.html">Headwear</a></li>
+    <li><a href="bestsellers.html">Best Sellers</a></li><li><a href="sale.html" style="color:var(--accent2)">Sale</a></li>
+  </ul>
+</div>
+
+<section class="women-hero">
+  <img src="./image/banner women.jpg" alt="Women's Collection Banner" class="women-hero-bg">
+  <div class="women-hero-left">
+    <div>
+      <h1 class="display-xl fade-in-2" style="line-height:0.88">WOMEN'S<br/><span class="text-accent">COLLECTION</span></h1>
+      <p class="fade-in-3" style="font-family:var(--font-sub);font-size:18px;letter-spacing:2px;margin:24px 0 36px;max-width:400px;line-height:1.6">Bold enough for the boardroom. Raw enough for the street.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO BANNER -->
+<div style="background:linear-gradient(90deg,#1a0d1a,#2a1028,#1a0d1a);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:48px 0">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <div>
+      <p class="eyebrow" style="margin-bottom:8px">Exclusive Offer</p>
+      <h2 class="display-md">Women's <span class="text-accent">Sale</span><br/>Up to 35% Off</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <p style="color:var(--text-muted);max-width:320px;font-size:14px;line-height:1.7">Shop our women's sale section for the best deals on streetwear. Limited sizes, don't miss out.</p>
+      <a href="sale.html" class="btn btn-primary">Shop Women's Sale</a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN SHOP WITH FILTER -->
+<section id="women-products" class="section-pad">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span class="current">Women's Collection</span></div>
+    <div class="shop-layout">
+
+      <aside class="filter-sidebar">
+        <div class="filter-title">Filter</div>
+        <div class="filter-group">
+          <div class="filter-group-label">Availability</div>
+          <label class="filter-option"><input type="checkbox" checked/> In Stock (310)</label>
+          <label class="filter-option"><input type="checkbox"/> Pre-Order (18)</label>
+        </div>
+        <div class="filter-group">
+          <div class="filter-group-label">Size</div>
+          <div class="size-selector">
+            <button class="size-btn">XS</button>
+            <button class="size-btn active">S</button>
+            <button class="size-btn">M</button>
+            <button class="size-btn">L</button>
+            <button class="size-btn">XL</button>
+            <button class="size-btn">XXL</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <div class="filter-group">
+            <div class="filter-group-label">Brand</div>
+            <label class="filter-option"><input type="checkbox" checked/> Urban Drip</label>
+            <label class="filter-option"><input type="checkbox"/> Druk Lab</label>
+            <label class="filter-option"><input type="checkbox"/> Paro Collective</label>
+            <label class="filter-option"><input type="checkbox"/> Tiger Nest Co.</label>
+            <label class="filter-option"><input type="checkbox"/> Dzong Street</label>
+        </div>
+        </div>
+        <button class="btn btn-primary w-100" style="margin-top:8px">Apply Filters</button>
+        <button class="btn btn-outline w-100" style="margin-top:8px">Clear All</button>
+      </aside>
+
+      <div>
+        <div class="tabs">
+          <button class="tab-btn active">All</button>
+          <button class="tab-btn">New</button>
+          <button class="tab-btn">Tops</button>
+          <button class="tab-btn">Bottoms</button>
+          <button class="tab-btn">Outerwear</button>
+          <button class="tab-btn">Sets</button>
+          <button class="tab-btn">Sale</button>
+        </div>
+
+        <div class="sort-bar">
+          <span class="result-count">310 Products</span>
+          <select>
+            <option>Sort: Featured</option>
+            <option>Newest First</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Best Sellers</option>
+          </select>
+        </div>
+
+        <div class="product-grid">
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Druk Hoodie.webp" alt="">
+          </div><span class="product-badge badge-new">New</span></div><div class="product-card-body"><p class="product-brand">Urban Drip</p><p class="product-name">Druk Oversized Hoodie</p><div class="product-price"><span class="price-current">Nu. 1,350</span></div><div class="stars mt-8">★★★★★</div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Valley Wrap Jacket.webp" alt="">
+          </div><span class="product-badge badge-hot">Hot</span></div><div class="product-card-body"><p class="product-brand">Paro Collective</p><p class="product-name">Valley Wrap Jacket</p><div class="product-price"><span class="price-current">Nu. 2,400</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Dragon Print Joggers.jpg" alt="">
+          </div><span class="product-badge badge-sale">-20%</span></div><div class="product-card-body"><p class="product-brand">Druk Lab</p><p class="product-name">Dragon Print Joggers</p><div class="product-price"><span class="price-current">Nu. 1,120</span><span class="price-original">Nu. 1,400</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-img"><div class="placeholder-img">
+            <img src="./image/Gaychen Crop Top.webp" alt="">
+          </div></div><div class="product-card-body"><p class="product-brand">Tiger Nest Co.</p><p class="product-name">Summit Crop Top</p><div class="product-price"><span class="price-current">Nu. 2,750</span></div></div><div class="product-card-actions"><button class="btn-cart">Add to Cart</button></div></div>
+        </div>
+
+        <div class="pagination">
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">URBAN<span>DRIP</span></div>
+          <p class="footer-desc">Bhutan's leading streetwear platform. Where ancient culture meets urban edge.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn">f</a>
+            <a href="#" class="social-btn">ig</a>
+            <a href="#" class="social-btn">tw</a>
+            <a href="#" class="social-btn">yt</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Shop</div>
+          <ul class="footer-links">
+            <li><a href="new.html">New Arrivals</a></li>
+            <li><a href="men.html">Men</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="kids.html">Kids</a></li>
+            <li><a href="footwear.html">Footwear</a></li>
+            <li><a href="headwear.html">Headwear</a></li>
+            <li><a href="sale.html">Sale</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Company</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="bestsellers.html">Best Sellers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Help</div>
+          <ul class="footer-links">
+            <li><a href="contact.html">Shipping Policy</a></li>
+            <li><a href="contact.html">Returns & Exchanges</a></li>
+            <li><a href="contact.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Urban Drip. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Service</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileNav').classList.add('open'));
+  document.getElementById('navClose').addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'));
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => { document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); });
+  });
+</script>
+</body>
+</html>
